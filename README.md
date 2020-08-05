@@ -10,25 +10,13 @@ This is a project form Udacity's React Nanodegree called Would you rather. The p
 screenShot
 ## Screenshots
  <p float="left">
-      <img src="./screenShot/1.PNG" width="40%"   /> 
-      <img src="./screenShot/2.PNG" width="40%" /> 
+      <img src="./screenShot/1.PNG" width="90%"   /> 
+      <img src="./screenShot/2.PNG" width="90%" /> 
+  <img src="./screenShot/3.PNG" width="90%" /> 
+      <img src="./screenShot/4.PNG" width="90%" /> 
+  <img src="./screenShot/5.PNG" width="90%" /> 
+      <img src="./screenShot/6.PNG" width="90%" /> 
+       <img src="./screenShot/7.PNG" width="90%" /> 
+
 </p>
  
-  <p float="left">
- ---------------------------------------------------------
-</p>
- <p float="left">
-      <img src="./screenShot/3.PNG" width="40%" /> 
-      <img src="./screenShot/4.PNG" width="40%" /> 
-</p>
-  <p float="left">
-      <img src="./screenShot/5.PNG" width="40%" /> 
-      <img src="./screenShot/6.PNG" width="40%" /> 
-</p>
-
- <p float="left">
-      <img src="./screenShot/7.PNG" width="40%" /> 
-      <img src="./screenShot/6.PNG" width="40%" /> 
-</p>
- 
-
