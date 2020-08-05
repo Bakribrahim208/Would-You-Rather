@@ -14,6 +14,9 @@ screenShot
       <img src="./screenShot/2.PNG" width="40%" /> 
 </p>
  
+  <p float="left">
+ ---------------------------------------------------------
+</p>
  <p float="left">
       <img src="./screenShot/3.PNG" width="40%" /> 
       <img src="./screenShot/4.PNG" width="40%" /> 
