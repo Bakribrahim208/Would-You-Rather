@@ -11,6 +11,7 @@ import {
   CardHeader,
   InputLabel,
   FormControl,
+  CircularProgress,
   Select, MenuItem, ListItemIcon, ListItem, Typography, Button,
   ListItemText, Avatar
 
@@ -54,88 +55,96 @@ function LoginPage() {
     }
 
   }
-  return userData.loading ? (<h1>loading</h1>) : userData.error ? (<h1>error</h1>) :
-    (<div>
+  return userData.loading ? (<CircularProgress />) : userData.error ? (<h1>error</h1>) :
+    (
+      <div
+      >
 
 
-      {
+        {
 
-        userData.users !== undefined ?
+          userData.users !== undefined ?
 
-          <Grid
+            <Grid
+              container
+              spacing={0}
+              direction="column"
+              alignItems="center"
+              justify="center"
+              style={{ minHeight: '100vh' }}
+            >
+              <Grid item xs={7}>
+                <Card>
+                  <CardHeader title='Login-in to Your Account'></CardHeader>
+                  <FormControl  >
+                    <InputLabel id="demo-controlled-open-select-label">Users</InputLabel>
+                    <Select
+                      labelId="demo-controlled-open-select-label"
+                      id="demo-controlled-open-select"
+                      value={user}
+                      onChange={handleChange}
 
-          >
-            <Grid item xs={7}>
-              <Card>
-                <CardHeader title='Login-in to Your Account'></CardHeader>
-                <FormControl  >
-                  <InputLabel id="demo-controlled-open-select-label">Users</InputLabel>
-                  <Select
-                    labelId="demo-controlled-open-select-label"
-                    id="demo-controlled-open-select"
-                    value={user}
-                    onChange={handleChange}
-
-                    style={{ padding: '8px', margin: '8px', minWidth: 300 }}
-                  >
+                      style={{ padding: '8px', margin: '8px', minWidth: 300 }}
+                    >
 
 
-                    {
-                      Object.keys(userData.users).map((singleUser) => {
-                        return (
-                          <MenuItem key={userData.users[singleUser].id} value={userData.users[singleUser].id}>
-                            <ListItem button>
-                              <ListItemIcon><Avatar alt="Remy Sharp" src={userData.users[singleUser].avatarURL} />
-                              </ListItemIcon>
-                              <ListItemText primary={userData.users[singleUser].name} />
-                            </ListItem></MenuItem>
+                      {
+                        Object.keys(userData.users).map((singleUser) => {
+                          return (
+                            <MenuItem key={userData.users[singleUser].id} value={userData.users[singleUser].id}>
+                              <ListItem button>
+                                <ListItemIcon><Avatar alt="Remy Sharp" src={userData.users[singleUser].avatarURL} />
+                                </ListItemIcon>
+                                <ListItemText primary={userData.users[singleUser].name} />
+                              </ListItem></MenuItem>
+                          )
+
+
+
+                        }
+
+
                         )
-
-
-
                       }
 
-
-                      )
-                    }
-
-                  </Select>
-                </FormControl>
+                    </Select>
+                  </FormControl>
 
 
-                <Typography variant="body2" color="textSecondary"
-                  style={{ padding: '8px', margin: '20px' }}
-                  id="demo-controlled-open-select-label">
-                  Select a user from above and click the login button.
+                  <Typography variant="body2" color="textSecondary"
+                    style={{ padding: '8px', margin: '20px' }}
+                    id="demo-controlled-open-select-label">
+                    Select a user from above and click the login button.
                     <br />
                     This is a demo app and doesn't require a password.</Typography >
-                <Button onClick={handleLogin} style={{ padding: '8px', margin: '8px', width: '50%' }}
-                  variant="contained" color="primary">
-                  Primary
+                  <Button onClick={handleLogin} style={{ padding: '8px', margin: '8px', width: '50%' }}
+                    variant="contained" color="primary">
+                    Login
                  </Button>
 
-              </Card>
+                </Card>
+              </Grid>
             </Grid>
-          </Grid>
 
-          : <h1>No Users</h1>
-      }
+            : <CircularProgress />
 
-      {
-        showError ?
+        }
 
-          <Alert variant="danger" onClose={() => setshowError(false)} dismissible>
-            <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
-            <p>
-              Please Select User To Login
+        {
+          showError ?
+
+            <Alert variant="danger" onClose={() => setshowError(false)} dismissible>
+              <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
+              <p>
+                Please Select User To Login
  </p>
-          </Alert> : <div></div>
+            </Alert> : <div></div>
 
-      }
+        }
 
 
 
-    </div>);
+      </ div >);
 }
 
 
