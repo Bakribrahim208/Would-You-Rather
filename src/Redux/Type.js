@@ -1,0 +1,22 @@
+export const FETCH_USER_REQUEST = 'FETCH_USER_REQUEST'
+export const FETCH_USER_SUCCESS = 'FETCH_USER_SUCCESS'
+export const FETCH_USER_ERROR = 'FETCH_USER_ERROR'
+export const SAVE_QUESTION_ANSWER = 'SAVE_QUESTION_ANSWER'
+export const ADD_QUESTION = 'ADD_QUESTION'
+
+
+
+
+
+
+export const ADD_QUESTION_TO_USER = 'ADD_QUESTION_TO_USER'
+
+export const FETCH_Question_REQUEST = 'FETCH_Question_REQUEST'
+export const FETCH_Question_SUCCESS = 'FETCH_Question_SUCCESS'
+export const FETCH_Question_ERROR = 'FETCH_Question_ERROR'
+
+export const SET_AUTHED_USER = 'SET_AUTHED_USER'
+export const SET_LOGUT_USER = 'SET_LOGUT_USER'
+export const USER_ANSWERED_QUESTION = 'USER_ANSWERED_QUESTION'
+
+
