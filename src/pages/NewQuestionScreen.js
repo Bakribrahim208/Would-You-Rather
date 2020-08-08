@@ -59,7 +59,7 @@ export function NewQuestionScreen(props) {
             setTimeout(() => res('success'), 500);
         }).then(() => {
 
-            history.push('/home')
+            history.push('/')
         });
 
 

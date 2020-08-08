@@ -19,7 +19,7 @@ import {
 function LoginPage(props) {
   const { history } = props;
   console.log(props)
-  const lastpath = props.location.state ? props.location.state.from.pathname : null
+  const lastpath = props.location ? props.location.state.from.pathname : null
 
 
 
@@ -49,17 +49,17 @@ function LoginPage(props) {
       dispatch(userAuth(user))
       localStorage.setItem('auth', true);
 
-      if (lastpath && lastpath !== '/unauthorized') {
-        console.log(lastpath)
-        console.log('lastpath')
-        history.push(lastpath);
+      // if (lastpath && lastpath !== '/unauthorized') {
+      //   console.log(lastpath)
+      //   console.log('lastpath')
+      //   history.push(lastpath);
 
-      } else {
-        console.log('homee')
+      // } else {
+      //   console.log('homee')
 
-        history.push("/home");
 
-      }
+      // }
+      //  history.push("/home");
 
     }
     else {
@@ -73,7 +73,6 @@ function LoginPage(props) {
     (
       <div
       >
-
 
         {
 

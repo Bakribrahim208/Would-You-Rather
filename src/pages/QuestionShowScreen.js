@@ -2,6 +2,7 @@ import React from 'react'
 import { QuestionwithAnswerItem } from '../component/QuestionwithAnswerItem'
 import { useSelector } from 'react-redux'
 import { QuestionResult } from './QuestionResult'
+import { Link } from 'react-router-dom';
 
 export function QuestionShowScreen(props) {
 
@@ -37,8 +38,13 @@ export function QuestionShowScreen(props) {
             </div>
         )
     } catch (e) {
-        console.log(e)
-        return <div></div>
+
+        return <div>
+            <h1>Page Not Found!</h1>
+            <p>Sorry the page could not be found.</p>
+            <p><Link to='/'>Back to Home Page</Link></p>
+
+        </div>
     }
 
 }

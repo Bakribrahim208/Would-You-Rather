@@ -42,9 +42,9 @@ function NavB(props) {
     return (
       <div>
         <Navbar bg="dark" variant="dark">
-          <Navbar.Brand as={Link} to="/home">Would You Rather</Navbar.Brand>
+          <Navbar.Brand as={Link} to="/">Would You Rather</Navbar.Brand>
           <Nav className="mr-auto"  >
-            <Nav.Link as={Link} to="/home" >DashBoard</Nav.Link>
+            <Nav.Link as={Link} to="/" >DashBoard</Nav.Link>
             <Nav.Link as={Link} to="/add"   >New Question</Nav.Link>
             <Nav.Link as={Link} to="/leaderboard" >LeaderBoard</Nav.Link>
           </Nav>

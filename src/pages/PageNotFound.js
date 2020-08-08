@@ -13,7 +13,7 @@ export function pageNotFound(props) {
         <div>
             <h1>Page Not Found!</h1>
             <p>Sorry the page could not be found.</p>
-            <p><Link to='/home'>Back to Home Page</Link></p>
+            <p><Link to='/'>Back to Home Page</Link></p>
 
         </div>
     )
