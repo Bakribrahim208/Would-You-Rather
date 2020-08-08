@@ -3,6 +3,20 @@ This is a project form Udacity's React Nanodegree called Would you rather. The p
 
 
 ## Installation
-*clone repo  `git clone https://github.com/Bakribrahim208/Would-You-Rather.git`
+* clone repo  `git clone https://github.com/Bakribrahim208/Would-You-Rather.git`
 * install project with `npm install`
 * run with `npm start`
+
+screenShot
+## Screenshots
+ <p float="left">
+      <img src="./screenShot/1.PNG" width="90%"   /> 
+      <img src="./screenShot/2.PNG" width="90%" /> 
+  <img src="./screenShot/3.PNG" width="90%" /> 
+      <img src="./screenShot/4.PNG" width="90%" /> 
+  <img src="./screenShot/5.PNG" width="90%" /> 
+      <img src="./screenShot/6.PNG" width="90%" /> 
+       <img src="./screenShot/7.PNG" width="90%" /> 
+
+</p>
+ 
