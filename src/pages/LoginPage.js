@@ -17,9 +17,9 @@ import {
 }
   from '@material-ui/core'
 function LoginPage(props) {
-  const { history } = props;
+  // const { history } = props;
   console.log(props)
-  const lastpath = props.location ? props.location.state.from.pathname : null
+  // const lastpath = props.location ? props.location.state.from.pathname : null
 
 
 
