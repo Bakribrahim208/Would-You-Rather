@@ -1,14 +1,14 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { handleAddQuestion } from '../Redux/Actions/QuestionAction'
-import { Alert } from 'react-bootstrap'
+import { Redirect } from 'react-router-dom';
 
 import React, { useState } from 'react'
 import {
-    Row, Nav,
+    Row,
     FormGroup
     , Button, Col,
     Image
-    , Form, Container, Card
+    , Form, Card
 } from 'react-bootstrap'
 
 export function NewQuestionScreen(props) {
@@ -18,13 +18,14 @@ export function NewQuestionScreen(props) {
 
     const [optionOne, setoptionOne] = useState("");
     const [optionTwo, setoptionTwo] = useState("");
-    const [showError, setshowError] = useState(false);
 
 
     const userState = useSelector(state => state.user)
     const authState = useSelector(state => state.auth)
 
     const currentUser = userState.users[authState.userId]
+
+
 
 
 
@@ -41,7 +42,12 @@ export function NewQuestionScreen(props) {
             case "optionTwo":
                 setoptionTwo(e.target.value)
                 break
+
+            default:
+
+                break;
         }
+
     }
     const addNewQuestion = (e) => {
 
@@ -62,7 +68,7 @@ export function NewQuestionScreen(props) {
 
     }
 
-    return (
+    return authState.userId ? (
         <div style={{ display: 'flex', justifyContent: 'center' }}  >
             <Card style={{ width: '25rem', display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
                 <Card.Header >
@@ -110,5 +116,12 @@ export function NewQuestionScreen(props) {
         </div>
 
 
-    )
+
+    ) :
+        <Redirect to={{
+            pathname: '/',
+            state: { from: props.location }
+        }}
+        />
+
 }

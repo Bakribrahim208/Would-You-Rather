@@ -1,6 +1,5 @@
 import { fetchUser } from '../Redux/index';
 import { useSelector, useDispatch } from 'react-redux'
-import { useHistory } from "react-router-dom";
 
 import React, { useEffect, useState } from 'react';
 import { Alert } from 'react-bootstrap'
@@ -17,9 +16,14 @@ import {
 
 }
   from '@material-ui/core'
-function LoginPage() {
+function LoginPage(props) {
+  const { history } = props;
+  console.log(props)
+  const lastpath = props.location.state ? props.location.state.from.pathname : null
 
-  const [user, setUser] = useState({});
+
+
+  const [user, setUser] = useState('');
   const [showError, setshowError] = useState(false);
 
   const userData = useSelector(state => state.user)
@@ -27,7 +31,7 @@ function LoginPage() {
   useEffect(() => {
 
     dispatch(fetchUser())
-  }, [])
+  }, [dispatch])
 
 
   const handleChange = (event) => {
@@ -37,15 +41,25 @@ function LoginPage() {
     setUser(event.target.value)
   }
 
-  const history = useHistory();
 
 
   const handleLogin = () => {
 
     if (user.length > 0) {
       dispatch(userAuth(user))
+      localStorage.setItem('auth', true);
 
-      history.push("/home");
+      if (lastpath && lastpath !== '/unauthorized') {
+        console.log(lastpath)
+        console.log('lastpath')
+        history.push(lastpath);
+
+      } else {
+        console.log('homee')
+
+        history.push("/home");
+
+      }
 
     }
     else {
@@ -82,13 +96,15 @@ function LoginPage() {
                       labelId="demo-controlled-open-select-label"
                       id="demo-controlled-open-select"
                       value={user}
+                      defaultValue={user}
+                      displayEmpty
                       onChange={handleChange}
-
                       style={{ padding: '8px', margin: '8px', minWidth: 300 }}
                     >
 
 
                       {
+
                         Object.keys(userData.users).map((singleUser) => {
                           return (
                             <MenuItem key={userData.users[singleUser].id} value={userData.users[singleUser].id}>
@@ -98,9 +114,6 @@ function LoginPage() {
                                 <ListItemText primary={userData.users[singleUser].name} />
                               </ListItem></MenuItem>
                           )
-
-
-
                         }
 
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Row, Image, Container, Col, Badge } from 'react-bootstrap';
+import { Card, Row, Col, Badge } from 'react-bootstrap';
 
 export function LeaderBoardItem(props) {
     const { user, rank } = props

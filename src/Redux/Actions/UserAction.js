@@ -1,5 +1,7 @@
-import axios from 'axios'
-import { FETCH_USER_REQUEST, FETCH_USER_SUCCESS, USER_ANSWERED_QUESTION, FETCH_USER_ERROR, ADD_QUESTION, ADD_QUESTION_TO_USER } from '../Type'
+import {
+  FETCH_USER_REQUEST, FETCH_USER_SUCCESS, USER_ANSWERED_QUESTION, FETCH_USER_ERROR
+  , ADD_QUESTION_TO_USER
+} from '../Type'
 import { getInitialData } from '../../utils/api'
 
 

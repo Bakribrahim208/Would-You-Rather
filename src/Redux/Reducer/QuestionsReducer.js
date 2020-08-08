@@ -1,4 +1,4 @@
-import { SAVE_QUESTION_ANSWER, ADD_QUESTION, FETCH_Question_REQUEST, FETCH_Question_SUCCESS, FETCH_Question_ERROR } from '../Type'
+import { SAVE_QUESTION_ANSWER, ADD_QUESTION, FETCH_Question_SUCCESS } from '../Type'
 
 
 const QuestionReducer = (state = {}, action) => {

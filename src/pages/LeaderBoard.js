@@ -1,12 +1,13 @@
 
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { Card, Row, Image, Container, Col, Badge } from 'react-bootstrap';
+import { useSelector } from 'react-redux'
+import { Row, Container, Col } from 'react-bootstrap';
 import { LeaderBoardItem } from '../component/LeaderBoardItem';
 
 export function LeaderBoard() {
     const userState = useSelector(state => state.user)
     const usersData = Object.values(userState.users)
+
         .map((user) => ({
             id: user.id,
             name: user.name,

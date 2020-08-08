@@ -1,30 +1,21 @@
-import React, { useState, useEffect } from 'react'
-import { makeStyles } from '@material-ui/core/styles';
+import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { userAnsweredQuestion } from '../Redux/Actions/UserAction'
 import { saveQuestionAnswer } from '../Redux/Actions/QuestionAction'
 import {
-  Container,
-  Image,
-  Row,
-  Col,
+
   Card,
   ListGroup,
   ListGroupItem,
   Form
   , Button
-  , Radio, FormGroup
-} from "react-bootstrap";
-import { useHistory } from "react-router-dom";
 
-const useStyles = makeStyles({
-  root: {
-    maxWidth: 345,
-  },
-  media: {
-    height: 140,
-  },
-});
+} from "react-bootstrap";
+
+
+
+
+
 
 export const QuestionwithAnswerItem = (props) => {
 

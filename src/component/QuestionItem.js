@@ -1,28 +1,13 @@
 
 import React from 'react'
-import { makeStyles } from '@material-ui/core/styles';
 
 import {
-  Container,
-  Image,
-  Row,
-  Col,
-  Card,
-  ListGroup,
-  ListGroupItem,
-  Form
+
+  Card
   , Button
-  , Radio, FormGroup
 } from "react-bootstrap";
 
-const useStyles = makeStyles({
-  root: {
-    maxWidth: 345,
-  },
-  media: {
-    height: 140,
-  },
-});
+
 
 export const QuestionItem = (props) => {
 
@@ -32,15 +17,11 @@ export const QuestionItem = (props) => {
 
   const user = users[question.author]
 
-  const classes = useStyles();
 
-  const handleChange = () => {
-
-  }
 
 
   const handleSumbit = () => {
-    history.push(`/qustionwithAnswer/${question.id}`)
+    history.push(`/questions/${question.id}`)
 
   }
   return (

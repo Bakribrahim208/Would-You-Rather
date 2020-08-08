@@ -1,14 +1,9 @@
-import React, { Component, useEffect } from 'react'
-import { useHistory } from "react-router-dom";
+import React from 'react'
 
-import PropTypes from 'prop-types'
 import { Tabs, Tab } from 'react-bootstrap';
-import { Link } from 'react-router-dom'
-import { fetchQuestion, fetchUser } from '../Redux/index';
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import QuestionList from '../pages/QuestionList'
-
-
+import { Redirect } from 'react-router-dom';
 
 function HomeScreen(props) {
 
@@ -17,23 +12,36 @@ function HomeScreen(props) {
   const Users = useSelector(state => state.user)
   const auth = useSelector(state => state.auth)
 
-  const answerIds = Object.keys(Users.users[auth.userId].answers);
-  const answered = Object.values(questionData)
-    .filter((question) => !answerIds.includes(question.id))
-    .sort((a, b) => b.timestamp - a.timestamp);
+  console.log(auth)
+  let answerIds = null
+  let answered = null
+  let unanswered = null
+
+  if (auth.userId) {
+    answerIds = Object.keys(Users.users[auth.userId].answers);
+    answered = Object.values(questionData)
+      .filter((question) => !answerIds.includes(question.id))
+      .sort((a, b) => b.timestamp - a.timestamp);
 
 
-  const unanswered = Object.values(questionData)
-    .filter((question) => answerIds.includes(question.id))
-    .sort((a, b) => b.timestamp - a.timestamp);
-  // if (Users.users[auth.userId].answers[questionId] !== undefined) {
-  //   return questionId;
-  // }
+    unanswered = Object.values(questionData)
+      .filter((question) => answerIds.includes(question.id))
+      .sort((a, b) => b.timestamp - a.timestamp);
+
+  }
 
 
-  console.log('-------')
 
-  return (
+
+
+
+
+
+
+
+
+
+  return auth.userId ? (
     <div style={{ justifyContent: 'center', margin: '30px' }} >
       <Tabs
         className="tabs d-flex justify-content-center"
@@ -51,7 +59,11 @@ function HomeScreen(props) {
 
 
     </div>
-  )
+  ) : <Redirect to={{
+    pathname: '/',
+    state: { from: props.location }
+  }}
+    />
 }
 
 

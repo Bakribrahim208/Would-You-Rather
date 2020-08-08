@@ -1,8 +1,7 @@
-import axios from 'axios'
-import { SAVE_QUESTION_ANSWER, ADD_QUESTION, FETCH_Question_REQUEST, FETCH_Question_SUCCESS, FETCH_Question_ERROR } from '../Type'
+import { SAVE_QUESTION_ANSWER, ADD_QUESTION, FETCH_Question_SUCCESS } from '../Type'
 import { getInitialData, saveQuestion } from '../../utils/api'
 import { addQuestionToUser } from './UserAction'
-
+import { fetchUserSUCCESS } from './UserAction'
 
 
 
@@ -60,6 +59,8 @@ export const fetchQuestion = () => {
     return getInitialData()
       .then(({ users, questions }) => {
         dispatch(fetchQuestionSUCCESS(questions))
+        dispatch(fetchUserSUCCESS(users))
+
       })
   }
 

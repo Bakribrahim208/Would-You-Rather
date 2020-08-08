@@ -3,11 +3,10 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { userLogout } from '../Redux/Actions/UserAuthAction'
 import { useHistory } from "react-router-dom";
-import { Switch, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import {
-  Navbar, Nav,
-  FormControl
+  Navbar, Nav
   , Button,
   Image
   , Form,
@@ -15,9 +14,6 @@ import {
 
 
 function NavB(props) {
-
-  console.log(props)
-  console.log('bkar')
 
   const dispatch = useDispatch()
   const history = useHistory();
@@ -33,20 +29,23 @@ function NavB(props) {
 
   const hanldeLogout = () => {
     dispatch(userLogout())
+    localStorage.removeItem('auth', false);
+
     history.entries = [];
     history.index = -1;
+
     history.push("/");
   }
 
 
-  if (auth.islogin)
+  if (auth.islogin === true)
     return (
       <div>
         <Navbar bg="dark" variant="dark">
           <Navbar.Brand as={Link} to="/home">Would You Rather</Navbar.Brand>
           <Nav className="mr-auto"  >
             <Nav.Link as={Link} to="/home" >DashBoard</Nav.Link>
-            <Nav.Link as={Link} to="/addquestion"   >New Question</Nav.Link>
+            <Nav.Link as={Link} to="/add"   >New Question</Nav.Link>
             <Nav.Link as={Link} to="/leaderboard" >LeaderBoard</Nav.Link>
           </Nav>
           <Form inline>

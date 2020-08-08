@@ -1,7 +1,7 @@
 
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { ProgressBar, Row, Col, ListGroup, ListGroupItem, Container, Card } from 'react-bootstrap';
+import { ProgressBar, Row, Col, ListGroup, ListGroupItem, Badge, Container, Card } from 'react-bootstrap';
 
 export function QuestionResult(props) {
     const chooseStyle = { background: '#BEFE9D', justifyContent: 'center' }
@@ -29,29 +29,46 @@ export function QuestionResult(props) {
         <Container>
             <Card>
                 <Card.Header ><b>Asked by {result.author}</b></Card.Header>
-                <Row className="justify-content-md-center">
-                    <Col md="auto">
-                        <ListGroup>
-                            <ListGroupItem style={(result.optionOne.text === currentUserchoose) ? chooseStyle : defualtStyle}>
-                                <b>Would You Rather {result.optionOne.text}</b>
+                <Card.Body>
+                    <Row className="justify-content-md-center">
+                        <Col md="auto">
+                            <ListGroup>
+                                <ListGroupItem
+                                    style={(result.optionOne.text === currentUserchoose) ? chooseStyle : defualtStyle}>
+                                    <b>Would You Rather {result.optionOne.text}</b>
 
-                                <ProgressBar animated now={(result.optionOne.votes.length / total) * 100}
-                                    label={`${parseInt((result.optionOne.votes.length / total) * 100, 10)}%`} />
-                                <b>({optionOneTotal}    votes out of   {total})</b>
-                            </ListGroupItem>
+                                    <ProgressBar animated now={(result.optionOne.votes.length / total) * 100}
+                                        label={`${parseInt((result.optionOne.votes.length / total) * 100, 10)}%`} />
+                                    <b>({optionOneTotal}    votes out of   {total})</b>
 
-                            <ListGroupItem style={(result.optionTwo.text === currentUserchoose) ? chooseStyle : defualtStyle}>
-                                <b>Would You Rather {result.optionTwo.text}</b>
+                                    {
+                                        (result.optionOne.text === currentUserchoose) ?
+                                            <Badge variant="primary" style={{ marginTop: '20px', fontSize: 16 }}>Your Vote</Badge> :
+                                            <div></div>
 
-                                <ProgressBar animated now={(result.optionTwo.votes.length / total) * 100}
-                                    label={`${parseInt((result.optionTwo.votes.length / total) * 100, 10)}%`}
-                                />
-                                <b>({optionTwoTotal}    votes out of   {total})</b>
-                            </ListGroupItem>
+                                    }
+                                </ListGroupItem>
 
-                        </ListGroup>
-                    </Col>
-                </Row>
+                                <ListGroupItem style={(result.optionTwo.text === currentUserchoose) ? chooseStyle : defualtStyle}>
+                                    <b>Would You Rather {result.optionTwo.text}</b>
+
+                                    <ProgressBar animated now={(result.optionTwo.votes.length / total) * 100}
+                                        label={`${parseInt((result.optionTwo.votes.length / total) * 100, 10)}%`}
+                                    />
+                                    <b>({optionTwoTotal}    votes out of   {total})</b>
+                                    {
+                                        (result.optionTwo.text === currentUserchoose) ?
+                                            <Badge variant="secondary" style={{ marginTop: '20px', fontSize: 16 }}>Your Vote</Badge> :
+                                            <div></div>
+
+                                    }
+                                </ListGroupItem>
+
+                            </ListGroup>
+                        </Col>
+                    </Row>
+
+                </Card.Body>
 
             </Card >
         </Container >
